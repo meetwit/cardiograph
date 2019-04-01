@@ -1,6 +1,5 @@
 #include "usart3.h"
 #include "stdio.h"
-#include "string.h"
 
 /************************************************************
 º¯ÊıÃû£ºvoid usart3_init(u32 baud);
