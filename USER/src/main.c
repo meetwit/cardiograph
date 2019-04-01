@@ -28,7 +28,7 @@ int main(){
 	
 	MAX30100_Begin();
 	
-	delayS(20);
+	delayS(5);
 	
 		wifi_init();
 	updat2(0,0);
@@ -37,6 +37,10 @@ int main(){
 	hmi_send_label('j',0,0,20);			//hmi进度条清零
 	hmi_send_label('n',0,0,10);			//hmi心率采集清零
 	while(1){
+		if(mw%1000>990){
+			updatR(n++);
+			mw+=10;
+		}
 		init_flag=MAX30100_Read(0x00);
 				 if(init_flag==0x20)
         {
@@ -90,7 +94,8 @@ int main(){
 							ht=0;
 							heart_rate_num=0;
 							
-							updat2(heart_beat,n++);
+//							updat2(heart_beat,n++);
+							updatT(heart_beat);
 						}
 						
 					}else if(rawIRValue>5000){

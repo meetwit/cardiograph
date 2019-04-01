@@ -1,5 +1,5 @@
 #include "timer.h"
-u32 ht=0,temp_time;
+u32 ht=0,temp_time,mw=0;
 u8 init_flag;
 u16 datasave[max_data],data_index=0;
 //定时器3中断服务程序	 
@@ -7,7 +7,8 @@ void TIM3_IRQHandler(void)
 { 		    		  			    
 	if(TIM3->SR&0X0001)//溢出中断
 	{
-			ht++;						   				     	    	
+			ht++;					
+			mw++;		
 	}				   
 	TIM3->SR&=~(1<<0);//清除中断标志位 	    
 }

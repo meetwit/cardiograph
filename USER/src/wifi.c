@@ -88,6 +88,33 @@ void updat2(uchar R,uchar T){
 
 }
 
+void updatR(uchar R){
+	 		 Uart1Sendsx(AT51,37);
+			 SendOneByte(0x73);		//shidu
+			 Uart1Sendsx(AT52,38);
+			 SendOneByte(R%100/10+0x30);
+			 SendOneByte(R%10+0x30);
+			 SendOneByte(0x2e);
+			 SendOneByte(0x30);
+			 SendOneByte(0x30);
+			 Uart1Sendsx(AT53,18);
+
+}
+
+void updatT(uchar T){
+			 Uart1Sendsx(AT51,37);
+			 SendOneByte(0x77);	   //wendu
+			 Uart1Sendsx(AT52,38);
+			 SendOneByte(T%100/10+0x30);
+			 SendOneByte(T%10+0x30);
+			 SendOneByte(0x2e);
+			 SendOneByte(0x30);
+			 SendOneByte(0x30);
+			 Uart1Sendsx(AT53,18);
+
+}
+
+
 
 //串行口连续发送char型数组，遇到终止号/0将停止
 void Uart1Sends(uchar *str)

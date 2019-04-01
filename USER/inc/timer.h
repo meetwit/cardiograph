@@ -4,7 +4,7 @@
 
 #define max_data 160
 
-extern u32 ht,temp_time;
+extern u32 ht,temp_time,mw;
 extern u8 init_flag;
 extern u16 datasave[max_data],data_index;
 
